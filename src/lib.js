@@ -159,7 +159,7 @@ class Migrator {
     for (const migration of migrationsToRun) {
       const migrationFilePath = path.join(self.migrationPath, migration.filename);
       let migrationFunctions;
-      migrationFunctions = require(migrationFilePath);
+      migrationFunctions = await import(migrationFilePath);
 
       if (!migrationFunctions[direction]) {
         throw new Error(`The "${direction}" export is not defined in ${migration.filename}.`.red);

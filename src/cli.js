@@ -17,7 +17,7 @@ let { argv: args } = yargs
   .config(
     'config',
     'filepath to an options configuration json file',
-    pathToConfigFile => {
+    (pathToConfigFile) => {
       // Get any args from env vars
       const envs = process.env;
       const envVarOptions = {};
